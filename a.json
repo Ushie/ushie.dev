@@ -1,0 +1,52 @@
+{
+    "success": true,
+    "data": {
+        "spotify": null,
+        "listening_to_spotify": false,
+        "kv": {
+            "real_name": "UshieKane",
+            "pronouns": "Any",
+            "github": "Ushie",
+            "age": "16"
+        },
+        "discord_user": {
+            "username": "Ushie",
+            "public_flags": 64,
+            "id": "399862294143696897",
+            "discriminator": "1111",
+            "bot": false,
+            "avatar": "276a8f554bacbced56879102a267cfc5"
+        },
+        "discord_status": "dnd",
+        "activities": [
+            {
+                "type": 4,
+                "state": "im xuze apparently (pls whoever knows what that means tell me)",
+                "name": "Custom Status",
+                "id": "custom",
+                "created_at": 1660882476182
+            },
+            {
+                "type": 0,
+                "timestamps": {
+                    "start": 1660872977789
+                },
+                "state": "Workspace: ",
+                "name": "Visual Studio Code",
+                "id": "b031c1fb067620be",
+                "details": "Editing RichPresenceIcon.svelte",
+                "created_at": 1660882648887,
+                "assets": {
+                    "small_text": "uwucode",
+                    "small_image": "565945770067623946",
+                    "large_text": "Editing a SVELTE file",
+                    "large_image": "603581316352442376"
+                },
+                "application_id": "383226320970055681"
+            }
+        ],
+        "active_on_discord_web": false,
+        "active_on_discord_mobile": false,
+        "active_on_discord_desktop": true
+    }
+}
