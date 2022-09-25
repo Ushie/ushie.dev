@@ -19,11 +19,7 @@
 	<p class="activity">{activity}</p>
 	<p class="details">{details}</p>
 	<p class="state">{state}</p>
-	<p
-		style="color: var(--dark-pinky); overflow: hidden; white-space: nowrap; font-size: 0.85rem; text-overflow: ellipsis; height: 15px;margin: 7px 0;"
-	>
-		04:20 elapsed
-	</p>
+	<p class="time">04:20 elapsed</p>
 </div>
 
 <style>
@@ -59,6 +55,15 @@
 		font-size: 0.85rem;
 		text-overflow: ellipsis;
 		max-width: 141px;
+		height: 15px;
+		margin: 7px 0;
+	}
+	.time {
+		color: var(--dark-pinky);
+		overflow: hidden;
+		white-space: nowrap;
+		font-size: 0.85rem;
+		text-overflow: ellipsis;
 		height: 15px;
 		margin: 7px 0;
 	}

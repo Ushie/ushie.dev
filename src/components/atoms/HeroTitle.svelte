@@ -1,7 +1,3 @@
-<script>
-	export const names = ["affan", "just j", "afn", "h"]
-</script>
-
 <div>
     <h1>
         <span class="first">hey, i'm</span> ushie
@@ -9,7 +5,7 @@
 	
 </div>
 
-<style>
+<style >
 	div {
 		display: inline-block;
 	}

@@ -15,27 +15,32 @@
             "id": "399862294143696897",
             "discriminator": "1111",
             "bot": false,
-            "avatar": "276a8f554bacbced56879102a267cfc5"
+            "avatar": "6db390c7f1287b89c028b20be1701eb5"
         },
         "discord_status": "dnd",
         "activities": [
             {
                 "type": 4,
-                "state": "im xuze apparently (pls whoever knows what that means tell me)",
+                "state": "BANANA PEELS",
                 "name": "Custom Status",
                 "id": "custom",
-                "created_at": 1660882476182
+                "emoji": {
+                    "name": "dancinglilgirl",
+                    "id": "818970911981436949",
+                    "animated": true
+                },
+                "created_at": 1664126964922
             },
             {
                 "type": 0,
                 "timestamps": {
-                    "start": 1660872977789
+                    "start": 1664126224212
                 },
-                "state": "Workspace: ",
+                "state": "Workspace: ushiekane.dev-svelte",
                 "name": "Visual Studio Code",
-                "id": "b031c1fb067620be",
-                "details": "Editing RichPresenceIcon.svelte",
-                "created_at": 1660882648887,
+                "id": "306b6a8fe114f9cc",
+                "details": "Editing HeroImage.svelte",
+                "created_at": 1664130830334,
                 "assets": {
                     "small_text": "uwucode",
                     "small_image": "565945770067623946",
