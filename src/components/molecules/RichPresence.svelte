@@ -11,7 +11,8 @@
 		started,
 		name,
 		expired_relative;
-	// modify the number prototype to add a function to add leading zeros
+
+	// helper function to add leading zeros
 	const pad = (number) => {
 		let s = String(number);
 		while (s.length < 2) {
