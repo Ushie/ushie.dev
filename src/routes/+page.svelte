@@ -20,26 +20,8 @@
 			<SocialsHost />
 		</div>
 		<div class="rich-presence">
-			<div class="icon-container">
-				<div class="icon-wrapper">
-					<img
-						src="https://cdn.discordapp.com/app-assets/383226320970055681/603581316352442376.webp?size=512"
-						class="icon"
-						alt=""
-					/>
-					<div class="child-icon-container">
-						<img
-							src="https://cdn.discordapp.com/app-assets/383226320970055681/565945770067623946.webp?size=512"
-							class="icon-small"
-							alt=""
-						/>
-					</div>
-				</div>
-			</div>
-			<div class="text-container">
-				<span class="rpc-title">Visual Studio Code</span>
-				<span>Editing +page.svelte</span>
-				<span>Workspace: ushiekane.dev-svelte</span>
+			<div class="rich-presence-wrapper">
+				<RichPresence />
 			</div>
 		</div>
 	</div>
@@ -112,40 +94,11 @@
 		padding-left: 3rem;
 		padding-right: 3rem;
 	}
-	.icon {
-		border-radius: 20%;
-		-webkit-box-shadow: 5px 5px 16px -4px rgba(0, 0, 0, 0.37);
-		box-shadow: 5px 5px 16px -4px rgba(0, 0, 0, 0.37);
-		height: 10rem;
-	}
-	.icon-small {
-		height: 2rem;
-		border-radius: 50%;
-		-webkit-box-shadow: 5px 5px 16px -4px rgba(0, 0, 0, 0.37);
-		box-shadow: 5px 5px 16px -4px rgba(0, 0, 0, 0.37);
-		height: 3rem;
-	}
-	.icon-container {
-		align-items: center;
-		justify-content: center;
+	.rich-presence-wrapper {
 		display: flex;
-	}
-	.child-icon-container {
-		position: absolute;
-		bottom: -10px;
-		right: -10px;
-	}
-	.icon-wrapper {
-		position: relative;
-	}
-	.text-container {
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-		padding: 2rem 0 0 2rem;
-	}
-	.text-container .rpc-title {
-		font-size: 2rem;
-		font-weight: bold;
+		padding-top: 3rem;
+		padding-bottom: 3rem;
+		gap: 3rem;
+		height: fit-content;
 	}
 </style>
