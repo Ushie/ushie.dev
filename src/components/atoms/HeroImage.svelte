@@ -15,14 +15,25 @@
 		src="https://cdn.discordapp.com/avatars/399862294143696897/{avatar_id}.png?size=2048"
 		class="logo"
 		alt=""
+		draggable="false"
 	/>
 </div>
 
 <style>
 	img {
-		border-radius: 10%;
-		height: 40rem;
+		border-radius: 10vh;
+        width: 66vh;
+        height: auto;
 	}
+
+	@media (max-width: 768px){
+        img {
+			width: 320px;
+			/*display: flex;*/
+			flex-direction: row;
+        }
+    }
+
 	div {
 		float: left;
 	}

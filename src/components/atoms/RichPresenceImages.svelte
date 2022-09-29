@@ -25,11 +25,11 @@
 <style>
 	div {
 		margin-left: 1.25rem;
-		display: flex;
+		/*display: flex;*/
 		align-items: center;
 		justify-content: center;
 	}
 	img {
-        border-radius: 1.5rem;
+		border-radius: 1.5rem;
 	}
 </style>

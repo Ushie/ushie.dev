@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	export let ws,
+	let ws,
 		app_id,
 		img_small,
 		img_large,
@@ -10,7 +10,8 @@
 		details,
 		started,
 		name,
-		expired_relative;
+		expired_relative,
+		isSpotify;
 
 	// helper function to add leading zeros
 	const pad = (number) => {
@@ -27,7 +28,7 @@
 		let minutes = Math.floor((elapsed / (1000 * 60)) % 60);
 		let hours = Math.floor((elapsed / (1000 * 60 * 60)) % 24);
 
-		expired_relative = `${pad(hours)}:${pad(minutes)}:${pad(seconds)} elapsed.`;
+		expired_relative = `${hours > 0 ? pad(hours) + ':' : ''}${pad(minutes)}:${pad(seconds)} elapsed`;
 	};
 
 	onMount(() => {
@@ -51,7 +52,7 @@
 			console.log(data);
 			if (data.op !== 0) return;
 			if (data.d.activities.length === 0) return;
-			const activity = data.d.activities[0];
+			const activity = data.d.activities.find((x) => x.type === 0);
 			app_id = activity.application_id;
 			img_small = activity.assets.small_image;
 			img_large = activity.assets.large_image;
@@ -61,6 +62,10 @@
 			state = activity.state;
 			details = activity.details;
 			name = activity.name;
+
+			// Spotify
+			isSpotify = data.d.listening_to_spotify;
+			album_cover
 		};
 
 		// Heartbeat to keep the connection alive
@@ -79,15 +84,17 @@
 <div class="icon-container">
 	<div class="icon-wrapper">
 		<img
-			src="https://cdn.discordapp.com/app-assets/{app_id}/{img_large}.webp?size=512"
+			src={img_large ? `https://cdn.discordapp.com/app-assets/${app_id}/${img_large}.webp?size=512` : "https://media.discordapp.net/attachments/1020062996711608491/1024387600846422086/unknown.png?width=676&height=676"}
 			class="icon"
 			alt=""
+			draggable="false"
 		/>
 		<div class="child-icon-container">
 			<img
 				src="https://cdn.discordapp.com/app-assets/{app_id}/{img_small}.webp?size=512"
 				class="icon-small"
 				alt=""
+				draggable="false"
 			/>
 		</div>
 	</div>
@@ -98,9 +105,9 @@
 	</div>
 	{#if started}
 		<div class="body">
-			<span>{state}</span>
-			<span>{details}</span>
-			<span>{expired_relative}</span>
+			<span>{state ? state : details}</span>
+			<span>{details ? details : expired_relative}</span>
+			<span>{expired_relative ? expired_relative : details}</span>
 		</div>
 	{/if}
 </div>
@@ -121,7 +128,7 @@
 	.icon-container {
 		align-items: center;
 		justify-content: center;
-		display: flex;
+		/*display: flex;*/
 	}
 	.child-icon-container {
 		position: absolute;
@@ -132,7 +139,7 @@
 		position: relative;
 	}
 	.text-container {
-		display: flex;
+		/*display: flex;*/
 		flex-direction: column;
 		justify-content: space-between;
 		width: 100%;
@@ -142,7 +149,7 @@
 		font-weight: bold;
 	}
 	.body {
-		display: flex;
+		/*display: flex;*/
 		flex-direction: column;
 		font-size: 1.1rem;
 	}

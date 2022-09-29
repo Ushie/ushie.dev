@@ -11,7 +11,7 @@
 		<HeroImage />
 	</div>
 	<div class="introduction-container">
-		<span class="hero-title">hey, i'm ushie</span>
+		<span class="hero-title"><strong>hey, i'm ushie</strong></span>
 		<span class="introduction">
 			Hey! I'm Ushie, someone who likes tinkering with random stuff, currently I don't make things,
 			but I'm hoping to change that soon :)
@@ -46,23 +46,22 @@
 		--font-two: 'JetBrains Mono', mono space;
 	}
 	.wrapper {
+		/*display: flex;*/
 		height: 100%;
-		display: flex;
+		width: 100%;
 	}
 	.logo-container {
-		display: flex;
+		/*display: flex;*/
 		justify-content: center;
 		align-items: center;
-		height: 100vh;
+		margin-top: 9rem;
 		width: 100%;
 	}
 	.introduction-container {
-		display: flex;
+		/*display: flex;*/
 		flex-direction: column;
 		margin-top: 8rem;
-		height: 100vh;
 		width: 100%;
-		text-align: left;
 		padding-right: 10rem;
 
 		color: var(--pinky);
@@ -83,22 +82,34 @@
 		width: 100%;
 	}
 	.rich-presence {
-		width: 35rem;
-		height: 15rem;
+		width: 64vh;
+		height: 27vh;
 		background-color: var(--pinky);
 		color: var(--dark-pinky);
 		font-family: var(--font-two);
-		border-radius: 2rem;
+		border-radius: 3.6vh;
 		margin-top: 2.7rem;
-		display: flex;
+		/*display: flex;*/
 		padding-left: 3rem;
 		padding-right: 3rem;
 	}
 	.rich-presence-wrapper {
-		display: flex;
+		/*display: flex;*/
 		padding-top: 3rem;
 		padding-bottom: 3rem;
 		gap: 3rem;
 		height: fit-content;
 	}
+
+	@media (max-width: 768px){
+		.wrapper {
+			flex-direction: column;
+		}
+		.logo-container {
+			margin-left: 20px;
+		}
+		.introduction-container {
+			margin-left: 30px;
+		}
+    }
 </style>
