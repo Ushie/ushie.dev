@@ -128,7 +128,7 @@
 	.icon-container {
 		align-items: center;
 		justify-content: center;
-		/*display: flex;*/
+		display: flex;
 	}
 	.child-icon-container {
 		position: absolute;
@@ -139,7 +139,7 @@
 		position: relative;
 	}
 	.text-container {
-		/*display: flex;*/
+		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		width: 100%;
@@ -149,7 +149,7 @@
 		font-weight: bold;
 	}
 	.body {
-		/*display: flex;*/
+		display: flex;
 		flex-direction: column;
 		font-size: 1.1rem;
 	}

@@ -25,7 +25,7 @@
 <style>
 	div {
 		margin-left: 1.25rem;
-		/*display: flex;*/
+		display: flex;
 		align-items: center;
 		justify-content: center;
 	}

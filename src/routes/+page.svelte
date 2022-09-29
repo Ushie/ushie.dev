@@ -46,19 +46,19 @@
 		--font-two: 'JetBrains Mono', mono space;
 	}
 	.wrapper {
-		/*display: flex;*/
+		display: flex;
 		height: 100%;
 		width: 100%;
 	}
 	.logo-container {
-		/*display: flex;*/
+		display: flex;
 		justify-content: center;
 		align-items: center;
 		margin-top: 9rem;
 		width: 100%;
 	}
 	.introduction-container {
-		/*display: flex;*/
+		display: flex;
 		flex-direction: column;
 		margin-top: 8rem;
 		width: 100%;
@@ -89,12 +89,12 @@
 		font-family: var(--font-two);
 		border-radius: 3.6vh;
 		margin-top: 2.7rem;
-		/*display: flex;*/
+		display: flex;
 		padding-left: 3rem;
 		padding-right: 3rem;
 	}
 	.rich-presence-wrapper {
-		/*display: flex;*/
+		display: flex;
 		padding-top: 3rem;
 		padding-bottom: 3rem;
 		gap: 3rem;

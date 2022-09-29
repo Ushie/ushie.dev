@@ -19,7 +19,7 @@
 		background-color: var(--pinky);
 		border-radius: 1rem;
 		float: left;
-		/*display: flex;*/
+		display: flex;
 		align-items: center;
 		justify-content: center;
 		margin-right: 10px;

@@ -29,7 +29,7 @@
 	@media (max-width: 768px){
         img {
 			width: 320px;
-			/*display: flex;*/
+			display: flex;
 			flex-direction: row;
         }
     }
