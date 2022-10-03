@@ -28,7 +28,9 @@
 		let minutes = Math.floor((elapsed / (1000 * 60)) % 60);
 		let hours = Math.floor((elapsed / (1000 * 60 * 60)) % 24);
 
-		expired_relative = `${hours > 0 ? pad(hours) + ':' : ''}${pad(minutes)}:${pad(seconds)} elapsed`;
+		expired_relative = `${hours > 0 ? pad(hours) + ':' : ''}${pad(minutes)}:${pad(
+			seconds
+		)} elapsed`;
 	};
 
 	onMount(() => {
@@ -65,7 +67,6 @@
 
 			// Spotify
 			isSpotify = data.d.listening_to_spotify;
-			album_cover
 		};
 
 		// Heartbeat to keep the connection alive
@@ -84,7 +85,9 @@
 <div class="icon-container">
 	<div class="icon-wrapper">
 		<img
-			src={img_large ? `https://cdn.discordapp.com/app-assets/${app_id}/${img_large}.webp?size=512` : "https://media.discordapp.net/attachments/1020062996711608491/1024387600846422086/unknown.png?width=676&height=676"}
+			src={img_large
+				? `https://cdn.discordapp.com/app-assets/${app_id}/${img_large}.webp?size=512`
+				: 'https://media.discordapp.net/attachments/1020062996711608491/1024387600846422086/unknown.png?width=676&height=676'}
 			class="icon"
 			alt=""
 			draggable="false"
@@ -155,5 +158,24 @@
 	}
 	.body span {
 		padding-bottom: 0.8rem;
+	}
+
+	@media (max-width: 768px) {
+		.icon {
+			height: 5rem;
+		}
+		.text-container .rpc-title {
+			font-size: 16px;
+		}
+		.body {
+			text-align: left;
+			font-size: 12px;
+			font-weight: bold;
+			display: block;
+		}
+		.text-container {
+			justify-content: center;
+			display: block;
+		}
 	}
 </style>

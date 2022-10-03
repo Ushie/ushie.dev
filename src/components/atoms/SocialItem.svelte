@@ -5,9 +5,9 @@
 	export let style = '';
 </script>
 
-<a href="{href}">
-	<div style="{style}">
-		<img src="socials/{icon}.svg" alt="" class="hhh">
+<a {href}>
+	<div {style}>
+		<img src="socials/{icon}.svg" alt="" class="hhh" />
 		<h3>{label}</h3>
 	</div>
 </a>
@@ -22,7 +22,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-right: 10px;
 	}
 
 	img {
@@ -33,6 +32,6 @@
 
 	h3 {
 		font-family: var(--font-two);
-		font-size:1rem;
+		font-size: 1rem;
 	}
 </style>

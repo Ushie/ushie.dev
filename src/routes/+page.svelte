@@ -9,6 +9,7 @@
 <div class="wrapper">
 	<div class="logo-container">
 		<HeroImage />
+		<span class="hero-title-mobile"><strong>hey, i'm ushie</strong></span>
 	</div>
 	<div class="introduction-container">
 		<span class="hero-title"><strong>hey, i'm ushie</strong></span>
@@ -49,6 +50,7 @@
 		display: flex;
 		height: 100%;
 		width: 100%;
+		overflow-x: hidden;
 	}
 	.logo-container {
 		display: flex;
@@ -83,7 +85,6 @@
 	}
 	.rich-presence {
 		width: 64vh;
-		height: 27vh;
 		background-color: var(--pinky);
 		color: var(--dark-pinky);
 		font-family: var(--font-two);
@@ -101,15 +102,58 @@
 		height: fit-content;
 	}
 
-	@media (max-width: 768px){
+	@media (max-width: 768px) {
 		.wrapper {
 			flex-direction: column;
 		}
 		.logo-container {
-			margin-left: 20px;
+			margin-left: 0;
+			margin-top: 3rem;
+			gap: 20px;
+			padding-left: 1rem;
+			padding-right: 1rem;
+			justify-content: space-between;
+			font-family: var(--font-one);
 		}
 		.introduction-container {
-			margin-left: 30px;
+			justify-content: center;
+			align-items: center;
+			margin-top: 2rem;
+			font-family: var(--font-one);
+			font-size: 6px;
+			width: 100%;
+			margin-right: 2rem;
+			text-align: center;
 		}
-    }
+		.introduction-container .introduction {
+			font-family: var(--font-one);
+			font-size: 16px;
+			padding-right: 0;
+			width: 90%;
+		}
+		.rich-presence {
+			width: 80%;
+			padding: 1rem;
+		}
+		.rich-presence-wrapper {
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+			text-align: left;
+		}
+		.hero-title {
+			display: none;
+		}
+		.hero-title-mobile {
+			display: block;
+			color: var(--pinky);
+			font-size: 3rem;
+		}
+		.social-buttons {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			gap: 1rem;
+			align-items: center;
+		}
+	}
 </style>
