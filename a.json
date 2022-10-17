@@ -2,15 +2,15 @@
     "success": true,
     "data": {
         "spotify": {
-            "track_id": "09dBShylHmARsv2NayPV2z",
+            "track_id": "3XlQM7xFNTXFOQcwIZnafZ",
             "timestamps": {
-                "start": 1664303075025,
-                "end": 1664303275803
+                "start": 1666027123922,
+                "end": 1666027296722
             },
-            "song": "We’re Alive",
-            "artist": "Cavetown",
-            "album_art_url": "https://i.scdn.co/image/ab67616d0000b2739ed6b04a8fe894a9204630f6",
-            "album": "Cavetown"
+            "song": "Life",
+            "artist": "Toiki; arh; Flower",
+            "album_art_url": "https://i.scdn.co/image/ab67616d0000b273f8c398bd5ff22ad41d27b884",
+            "album": "Hitoeni"
         },
         "listening_to_spotify": true,
         "kv": {
@@ -20,66 +20,36 @@
             "age": "16"
         },
         "discord_user": {
-            "username": "Ushie",
+            "username": "TESTSHIE",
             "public_flags": 64,
             "id": "399862294143696897",
             "discriminator": "1111",
             "bot": false,
-            "avatar": "0b7ae4612b68c7c315eb277962b05c0d"
+            "avatar": "4cb5cd23d711101cdf075a1955ccd203"
         },
-        "discord_status": "dnd",
+        "discord_status": "online",
         "activities": [
-            {
-                "type": 4,
-                "state": "BANANA PEELS",
-                "name": "Custom Status",
-                "id": "custom",
-                "emoji": {
-                    "name": "dancinglilgirl",
-                    "id": "818970911981436949",
-                    "animated": true
-                },
-                "created_at": 1664299662433
-            },
             {
                 "type": 2,
                 "timestamps": {
-                    "start": 1664303075025,
-                    "end": 1664303275803
+                    "start": 1666027123922,
+                    "end": 1666027296722
                 },
-                "sync_id": "09dBShylHmARsv2NayPV2z",
-                "state": "Cavetown",
-                "session_id": "b4730cddeb45fe5d993f01a0d5bb18eb",
+                "sync_id": "3XlQM7xFNTXFOQcwIZnafZ",
+                "state": "Toiki; arh; Flower",
+                "session_id": "7ef0584cce450ff54c9d74943248b20d",
                 "party": {
                     "id": "spotify:399862294143696897"
                 },
                 "name": "Spotify",
                 "id": "spotify:1",
                 "flags": 48,
-                "details": "We’re Alive",
-                "created_at": 1664303085932,
+                "details": "Life",
+                "created_at": 1666027123326,
                 "assets": {
-                    "large_text": "Cavetown",
-                    "large_image": "spotify:ab67616d0000b2739ed6b04a8fe894a9204630f6"
+                    "large_text": "Hitoeni",
+                    "large_image": "spotify:ab67616d0000b273f8c398bd5ff22ad41d27b884"
                 }
-            },
-            {
-                "type": 0,
-                "timestamps": {
-                    "start": 1664300165854
-                },
-                "state": "Workspace: ushiekane.dev-svelte",
-                "name": "Visual Studio Code",
-                "id": "2aa0df2a48c02f26",
-                "details": "Editing a.json",
-                "created_at": 1664303228786,
-                "assets": {
-                    "small_text": "uwucode",
-                    "small_image": "565945770067623946",
-                    "large_text": "Editing a JSON file",
-                    "large_image": "565944799761268737"
-                },
-                "application_id": "383226320970055681"
             }
         ],
         "active_on_discord_web": false,

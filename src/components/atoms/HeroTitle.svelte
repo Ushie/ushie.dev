@@ -1,25 +1,29 @@
-<div>
-    <h1>
-        <span class="first">hey, i'm</span> ushie
-    </h1>
-	
-</div>
+<script>
+	import { onMount } from 'svelte';
+	import LanyardData from '../../stores/LanyardStore';
 
-<style >
-	div {
-		display: inline-block;
-	}
+	let username = 'ushie';
 
-	h1 {
-		line-height: 0.05rem;
-		line-height: 101.6%;
+	onMount (() => {
+        LanyardData.subscribe(async (e) => {
+            let data = await e;
+            username = data.data.discord_user.username;
+        });
+    });
+</script>
+
+<span>hey, i'm <strong>ushie<strong /></strong></span>
+
+<style>
+	span {
 		font-size: 7rem;
-        color: var(--pinky);
-        font-family: var(--font-one);
-        letter-spacing: -0.04rem;
+		font-family: var(--font-one);
+		color: var(--pinky);
 	}
 
-    .first {
-        font-weight: normal;
-    }
+	@media (max-width: 768px) {
+		span {
+			display: none;
+		}
+	}
 </style>

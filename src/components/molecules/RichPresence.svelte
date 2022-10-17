@@ -82,40 +82,62 @@
 	setInterval(() => calculateElapsedTime(), 1000);
 </script>
 
-<div class="icon-container">
-	<div class="icon-wrapper">
-		<img
-			src={img_large
-				? `https://cdn.discordapp.com/app-assets/${app_id}/${img_large}.webp?size=512`
-				: 'https://media.discordapp.net/attachments/1020062996711608491/1024387600846422086/unknown.png?width=676&height=676'}
-			class="icon"
-			alt=""
-			draggable="false"
-		/>
-		<div class="child-icon-container">
-			<img
-				src="https://cdn.discordapp.com/app-assets/{app_id}/{img_small}.webp?size=512"
-				class="icon-small"
-				alt=""
-				draggable="false"
-			/>
+<div class="rich-presence">
+	<div class="rich-presence-wrapper">
+		<div class="icon-container">
+			<div class="icon-wrapper">
+				<img
+					src={img_large
+						? `https://cdn.discordapp.com/app-assets/${app_id}/${img_large}.webp?size=512`
+						: 'https://media.discordapp.net/attachments/1020062996711608491/1024387600846422086/unknown.png?width=676&height=676'}
+					class="icon"
+					alt=""
+					draggable="false"
+				/>
+				<div class="child-icon-container">
+					<img
+						src="https://cdn.discordapp.com/app-assets/{app_id}/{img_small}.webp?size=512"
+						class="icon-small"
+						alt=""
+						draggable="false"
+					/>
+				</div>
+			</div>
+		</div>
+		<div class="text-container">
+			<div class="title">
+				<span class="rpc-title">{name ? name : "I'm currently offline."}</span>
+			</div>
+			{#if started}
+				<div class="body">
+					<span>{state ? state : details}</span>
+					<span>{details ? details : expired_relative}</span>
+					<span>{expired_relative ? expired_relative : details}</span>
+				</div>
+			{/if}
 		</div>
 	</div>
-</div>
-<div class="text-container">
-	<div class="title">
-		<span class="rpc-title">{name ? name : "I'm currently offline."}</span>
-	</div>
-	{#if started}
-		<div class="body">
-			<span>{state ? state : details}</span>
-			<span>{details ? details : expired_relative}</span>
-			<span>{expired_relative ? expired_relative : details}</span>
-		</div>
-	{/if}
 </div>
 
 <style>
+	.rich-presence {
+		width: 35vw;
+		background-color: var(--pinky);
+		color: var(--dark-pinky);
+		font-family: var(--font-two);
+		border-radius: 3.6vh;
+		margin-top: 2.7rem;
+		display: flex;
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
+	.rich-presence-wrapper {
+		display: flex;
+		padding-top: 3rem;
+		padding-bottom: 3rem;
+		gap: 3rem;
+		height: fit-content;
+	}
 	.icon {
 		border-radius: 20%;
 		-webkit-box-shadow: 5px 5px 16px -4px rgba(0, 0, 0, 0.37);
@@ -176,6 +198,15 @@
 		.text-container {
 			justify-content: center;
 			display: block;
+		}
+		.rich-presence {
+			width: 80%;
+			padding: 1rem;
+		}
+		.rich-presence-wrapper {
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+			text-align: left;
 		}
 	}
 </style>

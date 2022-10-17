@@ -14,6 +14,7 @@
 
 <style>
 	div {
+		margin-right: 0.5rem;
 		width: 9rem;
 		height: 4rem;
 		background-color: var(--pinky);
