@@ -32,6 +32,7 @@
 	}
 
 	h3 {
+		color: var(--dark-pinky);
 		font-family: var(--font-two);
 		font-size: 1rem;
 	}
