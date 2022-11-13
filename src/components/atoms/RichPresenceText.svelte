@@ -63,7 +63,7 @@
 		overflow: hidden;
 		white-space: nowrap;
 		font-size: 0.85rem;
-		text-overflow: ellipsis;
+		text-	: ellipsis;
 		height: 15px;
 		margin: 7px 0;
 	}

@@ -23,26 +23,26 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		margin-top: 9rem;
-		width: 100%;
 	}
 	.hero-title-mobile {
 		display: none;
 	}
-	@media (max-width: 768px) {
+	@media (max-width: 868px) {
 		.logo-container {
 			margin-left: 0;
 			margin-top: 3rem;
 			gap: 20px;
 			padding-left: 1rem;
 			padding-right: 1rem;
-			justify-content: space-between;
+			display: flex;
+			flex-direction: column;
+			text-align: center	;
 			font-family: var(--font-one);
 		}
 		.hero-title-mobile {
-			display: block;
+			display: inline-block;
 			color: var(--pinky);
-			font-size: 3rem;
+			font-size:clamp(3rem, 8vw, 5rem); 
 		}
 	}
 </style>

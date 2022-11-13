@@ -121,28 +121,23 @@
 
 <style>
 	.rich-presence {
-		width: 35vw;
 		background-color: var(--pinky);
 		color: var(--dark-pinky);
 		font-family: var(--font-two);
-		border-radius: 3.6vh;
-		margin-top: 2.7rem;
+		border-radius: 28px;
 		display: flex;
-		padding-left: 3rem;
-		padding-right: 3rem;
+		padding: 1.5rem;
 	}
 	.rich-presence-wrapper {
 		display: flex;
-		padding-top: 3rem;
-		padding-bottom: 3rem;
 		gap: 3rem;
 		height: fit-content;
 	}
 	.icon {
-		border-radius: 20%;
+		border-radius: 12px;
 		-webkit-box-shadow: 5px 5px 16px -4px rgba(0, 0, 0, 0.37);
 		box-shadow: 5px 5px 16px -4px rgba(0, 0, 0, 0.37);
-		height: 10rem;
+		height: 6rem;
 	}
 	.icon-small {
 		border-radius: 50%;
@@ -164,13 +159,10 @@
 		position: relative;
 	}
 	.text-container {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
 		width: 100%;
 	}
 	.text-container .rpc-title {
-		font-size: 2rem;
+		font-size: 1.5rem;
 		font-weight: bold;
 	}
 	.body {
@@ -182,7 +174,7 @@
 		padding-bottom: 0.8rem;
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 868px) {
 		.icon {
 			height: 5rem;
 		}

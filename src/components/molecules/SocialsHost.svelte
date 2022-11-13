@@ -14,8 +14,3 @@
 		label="Discord"
 	/>
 </div>
-<style>
-	.social-buttons {
-		margin-top: 3rem;
-	}
-</style>
