@@ -30,7 +30,6 @@
 	@media (max-width: 868px) {
 		.logo-container {
 			margin-left: 0;
-			margin-top: 3rem;
 			gap: 20px;
 			padding-left: 1rem;
 			padding-right: 1rem;
