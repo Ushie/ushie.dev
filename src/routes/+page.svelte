@@ -17,7 +17,7 @@
 			<div class="social-buttons">
 				<SocialsHost />
 			</div>
-			<RichPresence />
+			<!-- <RichPresence /> -->
 		</div>
 	</div>
 </div>
@@ -34,8 +34,8 @@
 	}
 	:root {
 		--white: #d1d0d0;
-		--pinky: #d7b3fa;
-		--dark-pinky: #4b2d68;
+		--pinky: #4f162f;
+		--dark-pinky: #000000;
 		--font-one: 'Space Grotesk', sans-serif;
 		--font-two: 'JetBrains Mono', monospace;
 	}

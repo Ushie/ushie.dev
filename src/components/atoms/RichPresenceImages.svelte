@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 	import { onMount } from 'svelte';
 
 	let app_id,
@@ -70,4 +70,4 @@
 	img {
 		border-radius: 1.5rem;
 	}
-</style>
+</style> -->

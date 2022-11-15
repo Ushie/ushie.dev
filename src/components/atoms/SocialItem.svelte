@@ -6,15 +6,14 @@
 </script>
 
 <a {href}>
-	<div {style}>
+	<div {style} class="container">
 		<img src="socials/{icon}.svg" alt="" class="hhh" />
 		<h3>{label}</h3>
 	</div>
 </a>
 
 <style>
-	div {
-		margin-right: 0.5rem;
+	.container {
 		width: 9rem;
 		height: 4rem;
 		background-color: var(--pinky);
@@ -23,6 +22,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		margin-right: 0.5rem;
 	}
 
 	img {

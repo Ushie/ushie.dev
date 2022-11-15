@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 	import { onMount } from 'svelte';
 
 	let activity, details, state;
@@ -63,8 +63,8 @@
 		overflow: hidden;
 		white-space: nowrap;
 		font-size: 0.85rem;
-		text-	: ellipsis;
+		text-ov: ellipsis;
 		height: 15px;
 		margin: 7px 0;
 	}
-</style>
+</style> -->

@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 	import { onMount } from 'svelte';
 	let ws,
 		app_id,
@@ -201,4 +201,4 @@
 			text-align: left;
 		}
 	}
-</style>
+</style> -->

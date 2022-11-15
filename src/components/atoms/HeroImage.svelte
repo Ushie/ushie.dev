@@ -1,8 +1,8 @@
 <script>
-	export let avatar = 'https://github.com/Ushie.png';
+	let avatar = 'https://discordav.deno.dev/399862294143696897';
 </script>
 
-<img src={avatar} class="logo" alt="" draggable="false" />
+<img src="{avatar}" class="logo" alt="" draggable="false" />
 
 <style>
 	img {
