@@ -1,6 +1,5 @@
 <script>
 	import HeroTitle from '../components/atoms/HeroTitle.svelte';
-	import RichPresence from '../components/molecules/RichPresence.svelte';
 	import SocialsHost from '../components/molecules/SocialsHost.svelte';
 	import Hero from '../components/molecules/Hero.svelte';
 </script>
@@ -25,13 +24,18 @@
 <style>
 	:global(body) {
 		margin: 0;
-		height: 100vh;
+		padding: 0;
+		min-height: -webkit-fill-available;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		padding: 0;
 		background-color: #1a171e;
 	}
+
+	:global(html) {
+		height: -webkit-fill-available;
+	}
+
 	:root {
 		--white: #d1d0d0;
 		--pinky: #4f162f;
@@ -39,6 +43,7 @@
 		--font-one: 'Space Grotesk', sans-serif;
 		--font-two: 'JetBrains Mono', monospace;
 	}
+
 	.wrapper {
 		display: flex;
 		align-items: center;
@@ -63,6 +68,7 @@
 		color: var(--pinky);
 		font-family: var(--font-one);
 	}
+
 	.introduction-container .introduction {
 		color: var(--white);
 		font-size: 1.3rem;
@@ -74,14 +80,15 @@
 			flex-direction: column;
 			gap: 2rem;
 		}
+		
 		.introduction-container {
 			justify-content: center;
 			align-items: center;
 			text-align: center;
 			font-family: var(--font-one);
 			font-size: 6px;
-
 		}
+
 		.introduction-container .introduction {
 			font-family: var(--font-one);
 			font-size: 16px;
