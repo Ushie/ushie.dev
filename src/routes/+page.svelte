@@ -26,6 +26,7 @@
 		margin: 0;
 		padding: 0;
 		min-height: -webkit-fill-available;
+		min-height: -moz-available;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -34,6 +35,7 @@
 
 	:global(html) {
 		height: -webkit-fill-available;
+		height: -moz-available;
 	}
 
 	:root {
