@@ -1,17 +1,24 @@
-<!-- <script>
+<script>
 	import { onMount } from 'svelte';
-	let ws,
-		app_id,
-		img_small,
-		img_large,
-		txt_small,
-		txt_large,
-		state,
-		details,
+	import LanyardData from '../../stores/LanyardStore';
+
+	let activityName,
+		activityDetails,
+		activityState,
+		isSpotify,
+		albumArtURL,
+		largeImage,
+		smallImage,
+		appId,
+		artistName,
+		songName,
+		albumName,
+		trackId,
 		started,
-		name,
-		expired_relative,
-		isSpotify;
+		spotifyStarted,
+		timestamp,
+		status,
+		avatarId;
 
 	// helper function to add leading zeros
 	const pad = (number) => {
@@ -21,184 +28,221 @@
 		}
 		return s;
 	};
-
 	const calculateElapsedTime = () => {
-		let elapsed = Date.now() - started;
+		let elapsed = isSpotify ? Date.now() - spotifyStarted : Date.now() - started;
 		let seconds = Math.floor((elapsed / 1000) % 60);
 		let minutes = Math.floor((elapsed / (1000 * 60)) % 60);
 		let hours = Math.floor((elapsed / (1000 * 60 * 60)) % 24);
 
-		expired_relative = `${hours > 0 ? pad(hours) + ':' : ''}${pad(minutes)}:${pad(
-			seconds
-		)} elapsed`;
+		timestamp = `${hours > 0 ? pad(hours) + ':' : ''}${pad(minutes)}:${pad(seconds)} elapsed`;
 	};
 
 	onMount(() => {
-		ws = new WebSocket('wss://api.lanyard.rest/socket');
-
-		// Subscribe to updates
-		ws.onopen = () => {
-			ws.send(
-				JSON.stringify({
-					op: 2,
-					d: {
-						subscribe_to_id: '399862294143696897'
-					}
-				})
-			);
-		};
-
-		// Listen to messages (Opcode 0 is what we want)
-		ws.onmessage = (message) => {
-			const data = JSON.parse(message.data);
-			console.log(data);
-			if (data.op !== 0) return;
-			if (data.d.activities.length === 0) return;
-			const activity = data.d.activities.find((x) => x.type === 0);
-			app_id = activity.application_id;
-			img_small = activity.assets.small_image;
-			img_large = activity.assets.large_image;
-			txt_small = activity.assets.small_text;
-			txt_large = activity.assets.large_text;
-			started = activity.timestamps.start;
-			state = activity.state;
-			details = activity.details;
-			name = activity.name;
+		LanyardData.subscribe(async (e) => {
+			let data = await e;
+			status = data.data.discord_status;
+			activityName = data.data.activities[0]?.name;
+			activityDetails = data.data.activities[0]?.details;
+			activityState = data.data.activities[0]?.state;
+			avatarId = data.data.discord_user.avatar;
+			console.log(avatarId);
+			const activity = data.data.activities.find((x) => x.type === 0);
+			appId = activity?.application_id;
+			smallImage = activity?.assets.small_image;
+			largeImage = activity?.assets.large_image;
+			started = activity?.timestamps.start;
 
 			// Spotify
-			isSpotify = data.d.listening_to_spotify;
-		};
-
-		// Heartbeat to keep the connection alive
-		setInterval(() => {
-			ws.send(
-				JSON.stringify({
-					op: 3
-				})
-			);
-		}, 30000);
+			let spotify = data.data.spotify;
+			isSpotify = data.data.listening_to_spotify;
+			albumArtURL = spotify?.album_art_url;
+			artistName = spotify?.artist;
+			songName = spotify?.song;
+			albumName = spotify?.album;
+			trackId = spotify?.track_id;
+			spotifyStarted = spotify?.timestamps.start;
+		});
 	});
-
 	setInterval(() => calculateElapsedTime(), 1000);
 </script>
 
-<div class="rich-presence">
-	<div class="rich-presence-wrapper">
-		<div class="icon-container">
-			<div class="icon-wrapper">
-				<img
-					src={img_large
-						? `https://cdn.discordapp.com/app-assets/${app_id}/${img_large}.webp?size=512`
-						: 'https://media.discordapp.net/attachments/1020062996711608491/1024387600846422086/unknown.png?width=676&height=676'}
-					class="icon"
-					alt=""
-					draggable="false"
-				/>
-				<div class="child-icon-container">
-					<img
-						src="https://cdn.discordapp.com/app-assets/{app_id}/{img_small}.webp?size=512"
-						class="icon-small"
-						alt=""
-						draggable="false"
-					/>
+<div class="rich-presence-card">
+	<div class="wrapper">
+		<div class="user">
+			<img
+				src="https://cdn.discordapp.com/avatars/399862294143696897/{avatarId}.webp?size=512"
+				alt=""
+				class="avatar {status}"
+			/>
+			<span class="username">
+				<h1>Ushie</h1>
+				<h2>#1111</h2>
+			</span>
+		</div>
+		{#if started}
+			<div class="presence">
+				<div class="icon-container">
+					{#if isSpotify}
+						<img src="{albumArtURL}?size=2048" alt="album art" class="icon" />
+					{:else}
+						{#if largeImage}
+							<img
+								src="https://cdn.discordapp.com/app-assets/{appId}/{largeImage}.webp?size=512"
+								class="icon"
+								alt=""
+								draggable="false"
+							/>
+						{/if}
+						{#if smallImage}
+							<img
+								src="https://cdn.discordapp.com/app-assets/{appId}/{smallImage}.webp?size=512"
+								class="icon-small"
+								alt=""
+								draggable="false"
+							/>
+						{/if}
+					{/if}
+				</div>
+
+				<div class="text">
+					{#if songName || activityName}
+						<span class="title">
+							{songName ? songName : activityName}
+						</span>
+					{/if}
+					{#if artistName || activityDetails}
+						<span class="details">
+							{artistName ? artistName : activityDetails}
+						</span>
+					{/if}
+					{#if albumName || activityState}
+						<span class="details">{albumName ? albumName : activityState}</span>
+					{/if}
+					{#if timestamp}
+						<span class="details">{timestamp}</span>
+					{/if}
 				</div>
 			</div>
-		</div>
-		<div class="text-container">
-			<div class="title">
-				<span class="rpc-title">{name ? name : "I'm currently offline."}</span>
-			</div>
-			{#if started}
-				<div class="body">
-					<span>{state ? state : details}</span>
-					<span>{details ? details : expired_relative}</span>
-					<span>{expired_relative ? expired_relative : details}</span>
-				</div>
-			{/if}
-		</div>
+		{/if}
 	</div>
 </div>
 
 <style>
-	.rich-presence {
+	.rich-presence-card {
 		background-color: var(--pinky);
 		color: var(--dark-pinky);
 		font-family: var(--font-two);
-		border-radius: 28px;
-		display: flex;
-		padding: 1.5rem;
+		width: max-content;
+		padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+		border-radius: 1rem;
 	}
-	.rich-presence-wrapper {
+	.presence {
 		display: flex;
-		gap: 3rem;
-		height: fit-content;
+		margin-top: 2rem;
 	}
+	.user {
+		display: flex;
+	}
+	.avatar {
+		width: 4rem;
+		border-radius: 50%;
+	}
+	.avatar.online {
+		border: 3px solid #43b581;
+	}
+	.avatar.idle {
+		border: 3px solid #faa61a;
+	}
+	.avatar.dnd {
+		border: 3px solid #f04747;
+	}
+	.avatar.offline {
+		border: 3px solid #747f8d;
+	}
+	.username {
+		margin-left: 10px;
+		align-self: center;
+	}
+	.username h2 {
+		opacity: 0.5;
+	}
+
+	h1,
+	h2 {
+		margin: 0;
+		line-height: 1.25;
+		font-size: 1.25rem;
+	}
+
+	.icon-container {
+		position: relative;
+		margin-right: 1.8rem;
+	}
+
 	.icon {
-		border-radius: 12px;
-		-webkit-box-shadow: 5px 5px 16px -4px rgba(0, 0, 0, 0.37);
-		box-shadow: 5px 5px 16px -4px rgba(0, 0, 0, 0.37);
-		height: 6rem;
+		position: relative;
+		width: 7rem;
+		border-radius: 20%;
 	}
 	.icon-small {
-		border-radius: 50%;
-		-webkit-box-shadow: 5px 5px 16px -4px rgba(0, 0, 0, 0.37);
-		box-shadow: 5px 5px 16px -4px rgba(0, 0, 0, 0.37);
-		height: 3rem;
-	}
-	.icon-container {
-		align-items: center;
-		justify-content: center;
-		display: flex;
-	}
-	.child-icon-container {
 		position: absolute;
 		bottom: -10px;
-		right: -10px;
+		right: -15px;
+		border-radius: 50%;
+		width: 2.5rem;
 	}
-	.icon-wrapper {
-		position: relative;
-	}
-	.text-container {
-		width: 100%;
-	}
-	.text-container .rpc-title {
-		font-size: 1.5rem;
-		font-weight: bold;
-	}
-	.body {
+
+	.text {
 		display: flex;
 		flex-direction: column;
+		gap: 2px;
 		font-size: 1.1rem;
+		align-self: center;
 	}
-	.body span {
-		padding-bottom: 0.8rem;
+
+	.text span {
+		display: block;
+	}
+
+	.title {
+		font-weight: bold;
 	}
 
 	@media (max-width: 868px) {
+		.rich-presence-card {
+			padding: 1rem 1rem 1rem 1rem;
+			width: 20rem;
+			align-self: center;
+		}
+		.presence {
+			margin-top: 1rem;
+		}
+		.avatar {
+			width: 3rem;
+		}
+		.username {
+			margin-left: 8px;
+		}
+		.username h2 {
+			font-size: 1rem;
+		}
+		h1,
+		h2 {
+			font-size: 1rem;
+		}
 		.icon {
-			height: 5rem;
+			width: 5rem;
 		}
-		.text-container .rpc-title {
-			font-size: 16px;
+		.icon-small {
+			width: 2rem;
 		}
-		.body {
-			text-align: left;
-			font-size: 12px;
-			font-weight: bold;
+		.text {
+			font-size: 0.8rem;
+			flex-shrink: 2;
+			overflow: hidden;
+			text-overflow: ellipsis;
+  			word-wrap: break-word;
 			display: block;
-		}
-		.text-container {
-			justify-content: center;
-			display: block;
-		}
-		.rich-presence {
-			width: 80%;
-			padding: 1rem;
-		}
-		.rich-presence-wrapper {
-			padding-top: 1rem;
-			padding-bottom: 1rem;
-			text-align: left;
 		}
 	}
-</style> -->
+</style>

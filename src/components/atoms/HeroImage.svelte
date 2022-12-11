@@ -1,13 +1,28 @@
 <script>
-	let avatar = 'https://discordav.deno.dev/399862294143696897';
+	import { onMount } from 'svelte';
+	import LanyardData from '../../stores/LanyardStore';
+
+	let avatarID;
+
+	onMount(() => {
+		LanyardData.subscribe(async (e) => {
+			let data = await e;
+			avatarID = data.data.discord_user.avatar;
+		});
+	});
 </script>
 
-<img src="{avatar}" class="logo" alt="" draggable="false" />
+<img
+	src="https://cdn.discordapp.com/avatars/399862294143696897/{avatarID}.png?size=2048"
+	class="logo"
+	alt=""
+	draggable="false"
+/>
 
 <style>
 	img {
 		border-radius: 64px;
-		width: 450px;
+		width: 560px;
 		height: auto;
 	}
 

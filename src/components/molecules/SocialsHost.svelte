@@ -19,6 +19,12 @@
 <style>
 	.social-buttons {
 		display: flex;
+		flex-wrap: wrap;
 		gap: 10px;
+	}
+	@media (max-width: 868px) {
+		.social-buttons {
+			justify-content: center;
+		}
 	}
 </style>

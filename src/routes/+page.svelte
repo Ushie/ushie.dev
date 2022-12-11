@@ -2,6 +2,8 @@
 	import HeroTitle from '../components/atoms/HeroTitle.svelte';
 	import SocialsHost from '../components/molecules/SocialsHost.svelte';
 	import Hero from '../components/molecules/Hero.svelte';
+	import RichPresence from '../components/molecules/RichPresence.svelte';
+
 </script>
 
 <div class="center">
@@ -16,7 +18,7 @@
 			<div class="social-buttons">
 				<SocialsHost />
 			</div>
-			<!-- <RichPresence /> -->
+			<RichPresence />
 		</div>
 	</div>
 </div>
@@ -84,15 +86,13 @@
 		}
 		
 		.introduction-container {
-			justify-content: center;
 			align-items: center;
-			text-align: center;
 			font-family: var(--font-one);
 			font-size: 6px;
 		}
 
 		.introduction-container .introduction {
-			font-family: var(--font-one);
+			text-align: center;
 			font-size: 16px;
 			padding-right: 0;
 			width: 90%;
