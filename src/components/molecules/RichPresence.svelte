@@ -132,8 +132,8 @@
 		background-color: var(--pinky);
 		color: var(--dark-pinky);
 		font-family: var(--font-two);
-		width: max-content;
-		padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+		max-width: fit-content;
+		padding: 1.5rem;
 		border-radius: 1rem;
 	}
 	.presence {

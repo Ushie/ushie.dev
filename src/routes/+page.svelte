@@ -50,12 +50,9 @@
 
 	.wrapper {
 		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 5rem;
+		gap: 1rem;
 		max-width: 100vw;
 		height: 100%;
-		width: min(90%, 65rem) !important;
 	}
 
 	.center {
@@ -67,8 +64,8 @@
 	.introduction-container {
 		display: flex;
 		justify-content: center;
-		gap: 2rem;
 		flex-direction: column;
+		gap: 2rem;
 		color: var(--pinky);
 		font-family: var(--font-one);
 	}
@@ -83,6 +80,7 @@
 		.wrapper {
 			flex-direction: column;
 			gap: 2rem;
+			width: min(90%, 65rem) !important;
 		}
 		
 		.introduction-container {

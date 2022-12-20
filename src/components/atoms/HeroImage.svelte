@@ -21,17 +21,15 @@
 
 <style>
 	img {
-		border-radius: 64px;
-		width: 560px;
-		height: auto;
+		border-radius: 4rem;
+		width: auto;
+		height: 100%;
 	}
 
 	@media (max-width: 868px) {
 		img {
 			max-width: 40%;
 			border-radius: 20%;
-			display: flex;
-			flex-direction: row;
 		}
 	}
 </style>
