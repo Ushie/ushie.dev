@@ -3,7 +3,6 @@
 	import SocialsHost from '../components/molecules/SocialsHost.svelte';
 	import Hero from '../components/molecules/Hero.svelte';
 	import RichPresence from '../components/molecules/RichPresence.svelte';
-
 </script>
 
 <div class="center">
@@ -32,7 +31,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background-color: #1a171e;
+		background-color: #1b1b1f;
 	}
 
 	:global(html) {
@@ -42,15 +41,14 @@
 
 	:root {
 		--white: #d1d0d0;
-		--pinky: #4f162f;
-		--dark-pinky: #000000;
+		--pinky: #7c293e;
+		--dark-pinky: #000;
 		--font-one: 'Space Grotesk', sans-serif;
 		--font-two: 'JetBrains Mono', monospace;
 	}
 
 	.wrapper {
 		display: flex;
-		gap: 1rem;
 		max-width: 100vw;
 		height: 100%;
 	}
@@ -82,7 +80,7 @@
 			gap: 2rem;
 			width: min(90%, 65rem) !important;
 		}
-		
+
 		.introduction-container {
 			align-items: center;
 			font-family: var(--font-one);
