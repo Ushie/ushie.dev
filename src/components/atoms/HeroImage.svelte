@@ -13,7 +13,7 @@
 </script>
 
 <img
-	src="https://cdn.discordapp.com/avatars/399862294143696897/{avatarID}.png?size=2048"
+	src="https://cdn.discordapp.com/avatars/399862294143696897/{avatarID}.png?size=512"
 	class="logo"
 	alt=""
 	draggable="false"
