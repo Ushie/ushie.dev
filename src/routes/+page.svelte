@@ -31,7 +31,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background-color: #1b1b1f;
+		background-color: #0f1515;
 	}
 
 	:global(html) {
@@ -41,8 +41,8 @@
 
 	:root {
 		--white: #d1d0d0;
-		--pinky: #7c293e;
-		--dark-pinky: #000;
+		--pinky: #595f75;
+		--dark-pinky: #0f1515;
 		--font-one: 'Space Grotesk', sans-serif;
 		--font-two: 'JetBrains Mono', monospace;
 	}
