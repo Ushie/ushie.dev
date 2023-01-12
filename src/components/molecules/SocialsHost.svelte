@@ -14,6 +14,12 @@
 		icon="discord-icon"
 		label="Discord"
 	/>
+
+	<SocialItem
+		href="https://ko-fi.com/ushiekane/"
+		icon="donate-icon"
+		label="Donate"
+	/>
 </div>
 
 <style>
