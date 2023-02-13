@@ -1,13 +1,12 @@
 <script>
 	export let href = '#';
-	export let icon = 'github';
 	export let label = 'github';
 	export let style = '';
 </script>
 
 <a {href}>
 	<div {style} class="container">
-		<img src="socials/{icon}.svg" alt="" class="hhh" />
+		<slot />
 		<h3>{label}</h3>
 	</div>
 </a>
@@ -16,17 +15,14 @@
 	.container {
 		width: 9rem;
 		height: 4rem;
+		gap: 0.5rem;
 		background-color: var(--pinky);
 		border-radius: 1rem;
 		float: left;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-	}
-
-	img {
-		width: 2rem;
-		margin-right: 0.75rem;
+		color: var(--dark-pinky);
 	}
 
 	h3 {
