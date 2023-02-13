@@ -62,7 +62,6 @@
 		justify-content: center;
 		align-items: center;
 		background-color: var(--background-color);
-		background-color: #0f1515;
 	}
 
 	:global(html) {
