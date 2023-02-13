@@ -3,6 +3,36 @@
 	import SocialsHost from '../components/molecules/SocialsHost.svelte';
 	import Hero from '../components/molecules/Hero.svelte';
 	import RichPresence from '../components/molecules/RichPresence.svelte';
+	import { onMount } from 'svelte';
+	import ColorThief from '/node_modules/colorthief/dist/color-thief.mjs';
+
+	const colorThief = new ColorThief();
+	onMount(async () => {
+		const img = document.querySelector('.logo');
+		img.onload = async () => {
+			const color = await colorThief
+				.getColor(img)
+				.map((x) => {
+					const hex = x.toString(16);
+					return hex.length === 1 ? '0' + hex : hex;
+				})
+				.join('');
+			console.log(color);
+			async function getColors() {
+				const json = await fetch(
+					`https://cors-anywhere.azm.workers.dev/https://www.tints.dev/api/brand/${color}`
+				).then((r) => r.json());
+				console.log(json);
+				return json;
+			}
+			// const json =
+			// '{"brand":{"50":"#EBEBFF","100":"#D2D2FE","200":"#A6A4FE","300":"#7E7CFD","400":"#524FFD","500":"#2522FC","600":"#0703E2","700":"#0502AB","800":"#03026F","900":"#020137"}}';
+			const colors = await getColors();
+			document.documentElement.style.setProperty('--background-color', colors.brand['900']);
+			document.documentElement.style.setProperty('--pinky', colors.brand['500']);
+			document.documentElement.style.setProperty('--dark-pinky', colors.brand['800']);
+		};
+	});
 </script>
 
 <div class="center">
@@ -31,6 +61,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		background-color: var(--background-color);
 		background-color: #0f1515;
 	}
 
@@ -40,9 +71,10 @@
 	}
 
 	:root {
+		--background-color: #130f14;
 		--white: #d1d0d0;
-		--pinky: #595f75;
-		--dark-pinky: #0f1515;
+		--pinky: #5d4b64;
+		--dark-pinky: #261f29;
 		--font-one: 'Space Grotesk', sans-serif;
 		--font-two: 'JetBrains Mono', monospace;
 	}

@@ -17,6 +17,7 @@
 	class="logo"
 	alt=""
 	draggable="false"
+	crossorigin="anonymous"
 />
 
 <style>
