@@ -12,6 +12,15 @@
 	});
 </script>
 
+<svelte:head>
+	<link
+		id="favicon"
+		rel="shortcut icon"
+		type="image/png"
+		href="https://cdn.discordapp.com/avatars/399862294143696897/{avatarID}.png"
+	/>
+</svelte:head>
+
 <img
 	src="https://cdn.discordapp.com/avatars/399862294143696897/{avatarID}.png?size=512"
 	class="logo"
