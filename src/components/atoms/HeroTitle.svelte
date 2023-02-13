@@ -12,7 +12,7 @@
 	});
 </script>
 
-<span>hey, i'm <strong>{username.toLowerCase()}<strong /></strong></span>
+<span>hey, i'm <strong>{username.toLowerCase()}</strong></span>
 
 <style>
 	span {

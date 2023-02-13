@@ -1,7 +1,7 @@
 <script>
-	export let href = '#';
-	export let label = 'github';
-	export let style = '';
+	export let href;
+	export let label;
+	export let style;
 </script>
 
 <a {href}>

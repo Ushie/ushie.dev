@@ -245,7 +245,7 @@
 			flex-shrink: 2;
 			overflow: hidden;
 			text-overflow: ellipsis;
-  			word-wrap: break-word;
+			word-wrap: break-word;
 			display: block;
 		}
 	}
