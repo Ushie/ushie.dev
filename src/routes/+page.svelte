@@ -28,8 +28,8 @@
 				'--background-color',
 				localStorage.getItem('backgroundColor')
 			);
-			document.documentElement.style.setProperty('--pinky', localStorage.getItem('pinky'));
-			document.documentElement.style.setProperty('--dark-pinky', localStorage.getItem('darkPinky'));
+			document.documentElement.style.setProperty('--primary', localStorage.getItem('pinky'));
+			document.documentElement.style.setProperty('--secondary', localStorage.getItem('darkPinky'));
 		}
 
 		avatar.onload = async () => {
@@ -101,8 +101,8 @@
 	:root {
 		--background-color: #130f14;
 		--white: #d1d0d0;
-		--pinky: #5d4b64;
-		--dark-pinky: #261f29;
+		--primary: #5d4b64;
+		--secondary: #261f29;
 		--font-one: 'Space Grotesk', sans-serif;
 		--font-two: 'JetBrains Mono', monospace;
 	}
@@ -124,7 +124,7 @@
 		justify-content: center;
 		flex-direction: column;
 		gap: 2rem;
-		color: var(--pinky);
+		color: var(--primary);
 		font-family: var(--font-one);
 	}
 

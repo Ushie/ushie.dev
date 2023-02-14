@@ -16,17 +16,17 @@
 		width: 9rem;
 		height: 4rem;
 		gap: 0.5rem;
-		background-color: var(--pinky);
+		background-color: var(--primary);
 		border-radius: 1rem;
 		float: left;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		color: var(--dark-pinky);
+		color: var(--secondary);
 	}
 
 	h3 {
-		color: var(--dark-pinky);
+		color: var(--secondary);
 		font-family: var(--font-two);
 		font-size: 1rem;
 	}

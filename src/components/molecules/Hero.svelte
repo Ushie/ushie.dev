@@ -38,7 +38,7 @@
 		}
 		.hero-title-mobile {
 			display: inline-block;
-			color: var(--pinky);
+			color: var(--primary);
 			font-size: clamp(2.5rem, 8vw, 5rem);
 		}
 	}

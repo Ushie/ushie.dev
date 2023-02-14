@@ -18,7 +18,7 @@
 	span {
 		font-size: 4rem;
 		font-family: var(--font-one);
-		color: var(--pinky);
+		color: var(--primary);
 		margin-bottom: -1.5rem;
 	}
 

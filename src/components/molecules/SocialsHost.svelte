@@ -37,7 +37,7 @@
 
 <style>
 	svg {
-		color: var(--dark-pinky);
+		color: var(--secondary);
 	}
 	.social-buttons {
 		display: flex;
