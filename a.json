@@ -1,59 +1,59 @@
 {
-    "success": true,
-    "data": {
-        "spotify": {
-            "track_id": "3XlQM7xFNTXFOQcwIZnafZ",
-            "timestamps": {
-                "start": 1666027123922,
-                "end": 1666027296722
-            },
-            "song": "Life",
-            "artist": "Toiki; arh; Flower",
-            "album_art_url": "https://i.scdn.co/image/ab67616d0000b273f8c398bd5ff22ad41d27b884",
-            "album": "Hitoeni"
-        },
-        "listening_to_spotify": true,
-        "kv": {
-            "real_name": "UshieKane",
-            "pronouns": "Any",
-            "github": "Ushie",
-            "age": "16"
-        },
-        "discord_user": {
-            "username": "TESTSHIE",
-            "public_flags": 64,
-            "id": "399862294143696897",
-            "discriminator": "1111",
-            "bot": false,
-            "avatar": "4cb5cd23d711101cdf075a1955ccd203"
-        },
-        "discord_status": "online",
-        "activities": [
-            {
-                "type": 2,
-                "timestamps": {
-                    "start": 1666027123922,
-                    "end": 1666027296722
-                },
-                "sync_id": "3XlQM7xFNTXFOQcwIZnafZ",
-                "state": "Toiki; arh; Flower",
-                "session_id": "7ef0584cce450ff54c9d74943248b20d",
-                "party": {
-                    "id": "spotify:399862294143696897"
-                },
-                "name": "Spotify",
-                "id": "spotify:1",
-                "flags": 48,
-                "details": "Life",
-                "created_at": 1666027123326,
-                "assets": {
-                    "large_text": "Hitoeni",
-                    "large_image": "spotify:ab67616d0000b273f8c398bd5ff22ad41d27b884"
-                }
-            }
-        ],
-        "active_on_discord_web": false,
-        "active_on_discord_mobile": false,
-        "active_on_discord_desktop": true
-    }
+	"success": true,
+	"data": {
+		"spotify": {
+			"track_id": "3XlQM7xFNTXFOQcwIZnafZ",
+			"timestamps": {
+				"start": 1666027123922,
+				"end": 1666027296722
+			},
+			"song": "Life",
+			"artist": "Toiki; arh; Flower",
+			"album_art_url": "https://i.scdn.co/image/ab67616d0000b273f8c398bd5ff22ad41d27b884",
+			"album": "Hitoeni"
+		},
+		"listening_to_spotify": true,
+		"kv": {
+			"real_name": "UshieKane",
+			"pronouns": "Any",
+			"github": "Ushie",
+			"age": "16"
+		},
+		"discord_user": {
+			"username": "TESTSHIE",
+			"public_flags": 64,
+			"id": "399862294143696897",
+			"discriminator": "1111",
+			"bot": false,
+			"avatar": "4cb5cd23d711101cdf075a1955ccd203"
+		},
+		"discord_status": "online",
+		"activities": [
+			{
+				"type": 2,
+				"timestamps": {
+					"start": 1666027123922,
+					"end": 1666027296722
+				},
+				"sync_id": "3XlQM7xFNTXFOQcwIZnafZ",
+				"state": "Toiki; arh; Flower",
+				"session_id": "7ef0584cce450ff54c9d74943248b20d",
+				"party": {
+					"id": "spotify:399862294143696897"
+				},
+				"name": "Spotify",
+				"id": "spotify:1",
+				"flags": 48,
+				"details": "Life",
+				"created_at": 1666027123326,
+				"assets": {
+					"large_text": "Hitoeni",
+					"large_image": "spotify:ab67616d0000b273f8c398bd5ff22ad41d27b884"
+				}
+			}
+		],
+		"active_on_discord_web": false,
+		"active_on_discord_mobile": false,
+		"active_on_discord_desktop": true
+	}
 }
