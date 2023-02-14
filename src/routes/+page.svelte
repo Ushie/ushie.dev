@@ -8,29 +8,58 @@
 
 	const colorThief = new ColorThief();
 	onMount(async () => {
-		const img = document.querySelector('.logo');
-		img.onload = async () => {
+		const avatar = document.querySelector('.logo');
+		const avatarUrl = avatar.getAttribute('src');
+
+		async function getAverageColor(avatar) {
 			const color = await colorThief
-				.getColor(img)
+				.getColor(avatar)
 				.map((x) => {
 					const hex = x.toString(16);
 					return hex.length === 1 ? '0' + hex : hex;
 				})
 				.join('');
 			console.log(color);
-			async function getColors() {
-				const json = await fetch(
-					`https://cors-anywhere.azm.workers.dev/https://www.tints.dev/api/brand/${color}`
-				).then((r) => r.json());
-				console.log(json);
-				return json;
+			return color;
+		}
+
+		function setColors() {
+			document.documentElement.style.setProperty(
+				'--background-color',
+				localStorage.getItem('backgroundColor')
+			);
+			document.documentElement.style.setProperty('--pinky', localStorage.getItem('pinky'));
+			document.documentElement.style.setProperty('--dark-pinky', localStorage.getItem('darkPinky'));
+		}
+
+		avatar.onload = async () => {
+			const averageColor = await getAverageColor(avatar);
+			console.log(avatarUrl);
+			if (avatarUrl === localStorage.getItem('avatarUrl')) {
+				setColors();
+				console.log('same');
+				return;
+			} else {
+				localStorage.setItem('avatarUrl', avatarUrl);
+
+				async function getColors() {
+					const json = await fetch(
+						`https://cors-anywhere.azm.workers.dev/https://www.tints.dev/api/brand/${averageColor}`
+					).then((r) => r.json());
+					console.log(json);
+					return json;
+				}
+
+				// const json =
+				// '{"brand":{"50":"#EBEBFF","100":"#D2D2FE","200":"#A6A4FE","300":"#7E7CFD","400":"#524FFD","500":"#2522FC","600":"#0703E2","700":"#0502AB","800":"#03026F","900":"#020137"}}';
+
+				const colors = await getColors();
+				localStorage.setItem('backgroundColor', colors.brand['900']);
+				localStorage.setItem('pinky', colors.brand['500']);
+				localStorage.setItem('darkPinky', colors.brand['800']);
+				setColors();
+				console.log('not same');
 			}
-			// const json =
-			// '{"brand":{"50":"#EBEBFF","100":"#D2D2FE","200":"#A6A4FE","300":"#7E7CFD","400":"#524FFD","500":"#2522FC","600":"#0703E2","700":"#0502AB","800":"#03026F","900":"#020137"}}';
-			const colors = await getColors();
-			document.documentElement.style.setProperty('--background-color', colors.brand['900']);
-			document.documentElement.style.setProperty('--pinky', colors.brand['500']);
-			document.documentElement.style.setProperty('--dark-pinky', colors.brand['800']);
 		};
 	});
 </script>
