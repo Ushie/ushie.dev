@@ -35,11 +35,11 @@
 		avatar.onload = async () => {
 			const averageColor = await getAverageColor(avatar);
 			console.log(avatarUrl);
-			if (avatarUrl === localStorage.getItem('avatarUrl')) {
-				setColors();
-				console.log('same');
-				return;
-			} else {
+			// if (avatarUrl === localStorage.getItem('avatarUrl')) {
+			// 	setColors();
+			// 	console.log('same');
+			// 	return;
+			// } else {
 				localStorage.setItem('avatarUrl', avatarUrl);
 
 				async function getColors() {
@@ -58,9 +58,9 @@
 				localStorage.setItem('pinky', colors.brand['500']);
 				localStorage.setItem('darkPinky', colors.brand['800']);
 				setColors();
-				console.log('not same');
+				// console.log('not same');
 			}
-		};
+		// };
 	});
 </script>
 
