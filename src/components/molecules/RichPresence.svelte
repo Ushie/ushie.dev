@@ -80,7 +80,6 @@
 			/>
 			<span class="username">
 				<h1>{userName}</h1>
-				<h2>#{userDiscriminator}</h2>
 			</span>
 		</div>
 		{#if started}
@@ -167,12 +166,8 @@
 		margin-left: 10px;
 		align-self: center;
 	}
-	.username h2 {
-		opacity: 0.5;
-	}
 
-	h1,
-	h2 {
+	h1 {
 		margin: 0;
 		line-height: 1.25;
 		font-size: 1.25rem;
@@ -227,11 +222,7 @@
 		.username {
 			margin-left: 8px;
 		}
-		.username h2 {
-			font-size: 1rem;
-		}
-		h1,
-		h2 {
+		h1 {
 			font-size: 1rem;
 		}
 		.icon {
