@@ -2,8 +2,8 @@
 	import { onMount } from 'svelte';
 	import LanyardData from '../../stores/LanyardStore';
 
-	let userName = 'Loading...',
-		userDiscriminator = 'Loading...',
+	let displayName = 'Loading...',
+		userName = 'Loading...',
 		activityName,
 		activityDetails,
 		activityState,
@@ -42,8 +42,8 @@
 	onMount(() => {
 		LanyardData.subscribe(async (e) => {
 			let data = await e;
+			displayName = data.data.discord_user.display_name;
 			userName = data.data.discord_user.username;
-			userDiscriminator = data.data.discord_user.discriminator;
 			status = data.data.discord_status;
 			activityName = data.data.activities[0]?.name;
 			activityDetails = data.data.activities[0]?.details;
@@ -79,7 +79,8 @@
 				class="avatar {status}"
 			/>
 			<span class="username">
-				<h1>{userName}</h1>
+				<h1>{displayName}</h1>
+				<h2>@{userName}</h2>
 			</span>
 		</div>
 		{#if started}
@@ -166,8 +167,12 @@
 		margin-left: 10px;
 		align-self: center;
 	}
+	.username h2 {
+		opacity: 0.5;
+	}
 
-	h1 {
+	h1,
+	h2 {
 		margin: 0;
 		line-height: 1.25;
 		font-size: 1.25rem;
@@ -222,7 +227,11 @@
 		.username {
 			margin-left: 8px;
 		}
-		h1 {
+		.username h2 {
+			font-size: 1rem;
+		}
+		h1,
+		h2 {
 			font-size: 1rem;
 		}
 		.icon {
