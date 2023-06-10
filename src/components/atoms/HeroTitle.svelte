@@ -2,17 +2,17 @@
 	import { onMount } from 'svelte';
 	import LanyardData from '../../stores/LanyardStore';
 
-	let username = 'ushie';
+	let displayName = 'ushie';
 
 	onMount(() => {
 		LanyardData.subscribe(async (e) => {
 			let data = await e;
-			username = data.data.discord_user.username;
+			displayName = data.data.discord_user.display_name;
 		});
 	});
 </script>
 
-<span>hey, i'm <strong>{username.toLowerCase()}</strong></span>
+<span>hey, i'm <strong>{displayName.toLowerCase()}</strong></span>
 
 <style>
 	span {
