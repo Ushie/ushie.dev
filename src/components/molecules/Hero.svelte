@@ -3,19 +3,19 @@
 	// import LanyardData from '../../stores/LanyardStore';
 	import HeroImage from '../atoms/HeroImage.svelte';
 
-	// let avatar_id, avatar = "https://github.com/ushie.png";
-	// onMount (() => {
-	//     LanyardData.subscribe(async (e) => {
-	//         let data = await e;
-	//         avatar_id = data.data.discord_user.avatar;
-	//         avatar = "https://cdn.discordapp.com/avatars/399862294143696897/" + avatar_id + ".png?size=2048";
-	//     });
-	// });
+	let globalName = 'ushie';
+
+	onMount(() => {
+		LanyardData.subscribe(async (e) => {
+			let data = await e;
+			globalName = data.data.discord_user.global_name;
+		});
+	});
 </script>
 
 <div class="logo-container">
 	<HeroImage />
-	<span class="hero-title-mobile">hey, i'm <strong>ushie</strong></span>
+	<span class="hero-title-mobile">hey, i'm <strong>{globalName.toLowerCase()}</strong></span>
 </div>
 
 <style>
