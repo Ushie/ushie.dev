@@ -1,6 +1,6 @@
 <script>
-	// import { onMount } from 'svelte';
-	// import LanyardData from '../../stores/LanyardStore';
+	import { onMount } from 'svelte';
+	import LanyardData from '../../stores/LanyardStore';
 	import HeroImage from '../atoms/HeroImage.svelte';
 
 	let globalName = 'ushie';
