@@ -74,7 +74,7 @@
 	<div class="wrapper">
 		<div class="user">
 			<img
-				src="https://cdn.discordapp.com/avatars/399862294143696897/{avatarId}.webp?size=512"
+				src="https://cdn.discordapp.com/avatars/399862294143696897/{avatarId}?size=512"
 				alt=""
 				class="avatar {status}"
 			/>
@@ -91,7 +91,7 @@
 					{:else}
 						{#if largeImage}
 							<img
-								src="https://cdn.discordapp.com/app-assets/{appId}/{largeImage}.webp?size=512"
+								src="https://cdn.discordapp.com/app-assets/{appId}/{largeImage}?size=512"
 								class="icon"
 								alt=""
 								draggable="false"
@@ -99,7 +99,7 @@
 						{/if}
 						{#if smallImage}
 							<img
-								src="https://cdn.discordapp.com/app-assets/{appId}/{smallImage}.webp?size=512"
+								src="https://cdn.discordapp.com/app-assets/{appId}/{smallImage}?size=512"
 								class="icon-small"
 								alt=""
 								draggable="false"
