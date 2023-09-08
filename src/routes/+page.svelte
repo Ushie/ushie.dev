@@ -4,63 +4,67 @@
 	import Hero from '../components/molecules/Hero.svelte';
 	import RichPresence from '../components/molecules/RichPresence.svelte';
 	import { onMount } from 'svelte';
-	import ColorThief from '/node_modules/colorthief/dist/color-thief.mjs';
+	import {
+		hexFromArgb,
+		Hct,
+		DynamicScheme,
+		sourceColorFromImage,
+		MaterialDynamicColors,
+		TonalPalette,
+		DislikeAnalyzer,
+		TemperatureCache
+	} from '@material/material-color-utilities';
 
-	const colorThief = new ColorThief();
 	onMount(async () => {
 		const avatar = document.querySelector('.logo');
-		const avatarUrl = avatar.getAttribute('src');
-
-		async function getAverageColor(avatar) {
-			const color = await colorThief
-				.getColor(avatar)
-				.map((x) => {
-					const hex = x.toString(16);
-					return hex.length === 1 ? '0' + hex : hex;
-				})
-				.join('');
-			console.log(color);
-			return color;
-		}
-
-		function setColors() {
-			document.documentElement.style.setProperty(
-				'--background-color',
-				localStorage.getItem('backgroundColor')
-			);
-			document.documentElement.style.setProperty('--primary', localStorage.getItem('pinky'));
-			document.documentElement.style.setProperty('--secondary', localStorage.getItem('darkPinky'));
-		}
 
 		avatar.onload = async () => {
-			const averageColor = await getAverageColor(avatar);
-			console.log(avatarUrl);
-			// if (avatarUrl === localStorage.getItem('avatarUrl')) {
-			// 	setColors();
-			// 	console.log('same');
-			// 	return;
-			// } else {
-				localStorage.setItem('avatarUrl', avatarUrl);
+			await getColors().then((scheme) => {
+				setColors(scheme);
+			});
+		};
 
-				async function getColors() {
-					const json = await fetch(
-						`https://cors-anywhere.azm.workers.dev/https://www.tints.dev/api/brand/${averageColor}`
-					).then((r) => r.json());
-					console.log(json);
-					return json;
-				}
+		async function getColors() {
+			const sourceColor = await sourceColorFromImage(avatar);
+			const sourceColorHct = Hct.fromInt(sourceColor);
 
-				// const json =
-				// '{"brand":{"50":"#EBEBFF","100":"#D2D2FE","200":"#A6A4FE","300":"#7E7CFD","400":"#524FFD","500":"#2522FC","600":"#0703E2","700":"#0502AB","800":"#03026F","900":"#020137"}}';
+			const dynamicScheme = new DynamicScheme({
+				sourceColorArgb: sourceColorHct,
+				variant: 6,
+				contrastLevel: 0,
+				isDark: true,
+				primaryPalette: TonalPalette.fromHueAndChroma(sourceColorHct.hue, sourceColorHct.chroma),
+				secondaryPalette: TonalPalette.fromHueAndChroma(
+					sourceColorHct.hue,
+					Math.max(sourceColorHct.chroma - 32.0, sourceColorHct.chroma * 0.5)
+				),
+				tertiaryPalette: TonalPalette.fromInt(
+					DislikeAnalyzer.fixIfDisliked(
+						new TemperatureCache(sourceColorHct).analogous(3, 6)[2]
+					).toInt()
+				),
+				neutralPalette: TonalPalette.fromHueAndChroma(sourceColorHct.hue, 15.0),
+				neutralVariantPalette: TonalPalette.fromHueAndChroma(sourceColorHct.hue, 2.0)
+			});
 
-				const colors = await getColors();
-				localStorage.setItem('backgroundColor', colors.brand['900']);
-				localStorage.setItem('pinky', colors.brand['500']);
-				localStorage.setItem('darkPinky', colors.brand['800']);
-				setColors();
-				// console.log('not same');
-			}
-		// };
+			const getDynamicColor = (name) => {
+				return MaterialDynamicColors[name].getArgb(dynamicScheme);
+			};
+			const scheme = Object.fromEntries(
+				['primary', 'onPrimary', 'background', 'onBackground'].map((key) => [
+					key,
+					hexFromArgb(getDynamicColor(key))
+				])
+			);
+			return scheme;
+		}
+
+		function setColors(theme) {
+			document.documentElement.style.setProperty('--background-color', theme.background);
+			document.documentElement.style.setProperty('--primary', theme.primary);
+			document.documentElement.style.setProperty('--secondary', theme.onPrimary);
+			document.documentElement.style.setProperty('--white', theme.onBackground);
+		}
 	});
 </script>
 
