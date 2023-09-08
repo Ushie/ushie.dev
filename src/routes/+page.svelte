@@ -18,11 +18,17 @@
 	onMount(async () => {
 		const avatar = document.querySelector('.logo');
 
-		avatar.onload = async () => {
-			await getColors().then((scheme) => {
+		if (avatar.complete) {
+			getColors().then((scheme) => {
 				setColors(scheme);
 			});
-		};
+		} else {
+			avatar.onload = async () => {
+				await getColors().then((scheme) => {
+					setColors(scheme);
+				});
+			};
+		}
 
 		async function getColors() {
 			const sourceColor = await sourceColorFromImage(avatar);
