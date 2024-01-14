@@ -22,11 +22,11 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		color: var(--secondary);
+		color: var(--onPrimary);
 	}
 
 	h3 {
-		color: var(--secondary);
+		color: var(--onPrimary);
 		font-family: var(--font-two);
 		font-size: 1rem;
 	}

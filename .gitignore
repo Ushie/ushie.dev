@@ -6,3 +6,5 @@ node_modules
 .env
 .env.*
 !.env.example
+src/routes/colorScheme.css
+static/avatar.webp

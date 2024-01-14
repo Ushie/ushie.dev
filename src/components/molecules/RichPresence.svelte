@@ -134,7 +134,7 @@
 <style>
 	.rich-presence-card {
 		background-color: var(--primary);
-		color: var(--secondary);
+		color: var(--onPrimary);
 		font-family: var(--font-two);
 		max-width: fit-content;
 		padding: 1.5rem;

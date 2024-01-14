@@ -2,25 +2,25 @@
 	"name": "ushie.dev",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"package": "svelte-kit package",
-		"preview": "vite preview",
+		"sync-profile": "node utils/sync-profile.js",
+		"dev": "pnpm run sync-profile && vite dev",
+		"build": "pnpm run sync-profile && vite build",
+		"package": "pnpm run sync-profile && svelte-kit package",
+		"preview": "pnpm run sync-profile && vite preview",
 		"test": "playwright test",
 		"lint": "prettier --check --plugin-search-dir=. .",
 		"format": "prettier --write --plugin-search-dir=. ."
 	},
 	"devDependencies": {
-		"@playwright/test": "^1.36.1",
-		"@sveltejs/adapter-auto": "2.0.0",
-		"@sveltejs/kit": "^1.22.3",
+		"@material/material-color-utilities": "^0.2.7",
+		"@playwright/test": "^1.40.1",
+		"@sveltejs/adapter-static": "^2.0.3",
+		"@sveltejs/kit": "^1.30.3",
+		"canvas": "^2.11.2",
 		"prettier": "^2.8.8",
 		"prettier-plugin-svelte": "^2.10.1",
-		"svelte": "^4.1.1",
-		"vite": "^4.4.6"
+		"svelte": "^4.2.8",
+		"vite": "^4.5.1"
 	},
-	"type": "module",
-	"dependencies": {
-		"@material/material-color-utilities": "^0.2.7"
-	}
+	"type": "module"
 }
