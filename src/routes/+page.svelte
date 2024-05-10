@@ -28,8 +28,8 @@
 	:global(body) {
 		margin: 0;
 		padding: 0;
-		min-height: -webkit-fill-available;
-		min-height: -moz-available;
+		min-height: 100vh;
+		min-height: 100dvh;
 		display: flex;
 		justify-content: center;
 		align-items: center;
