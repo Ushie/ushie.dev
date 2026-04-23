@@ -1,0 +1,18 @@
+---
+	const { globalName } = Astro.props
+---
+
+<span>hey, i'm <strong>{globalName.toLowerCase()}</strong></span>
+
+<style>
+	span {
+		font-size: 4rem;
+		font-family: var(--font-one);
+		color: var(--primary);
+		margin-bottom: -1.5rem;
+		
+		@media (max-width: 868px) {
+			display: none;
+		}
+	}
+</style>

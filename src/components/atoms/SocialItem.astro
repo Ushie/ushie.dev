@@ -1,18 +1,16 @@
-<script>
-	export let href;
-	export let label;
-	export let style;
-</script>
+---
+	const { href, label, style } = Astro.props
+---
 
 <a {href}>
-	<div {style} class="container">
+	<div {style}>
 		<slot />
 		<h3>{label}</h3>
 	</div>
 </a>
 
 <style>
-	.container {
+	div {
 		width: 9rem;
 		height: 4rem;
 		gap: 0.5rem;

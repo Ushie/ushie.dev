@@ -1,0 +1,27 @@
+---
+	const { avatarUrl } = Astro.props
+---
+
+<img
+	src={avatarUrl}
+	class="logo"
+	alt=""
+	draggable="false"
+	crossorigin="anonymous"
+	fetchpriority="high"
+	loading="eager"
+	decoding="async"
+/>
+
+<style>
+	img {
+		border-radius: 4rem;
+		width: auto;
+		height: 100%;
+
+		@media (max-width: 868px) {
+			max-width: 40%;
+			border-radius: 20%;
+		}
+	}
+</style>

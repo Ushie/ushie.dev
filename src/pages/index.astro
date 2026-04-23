@@ -1,0 +1,122 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/molecules/Hero.astro';
+import HeroTitle from '../components/atoms/HeroTitle.astro';
+import SocialsHost from '../components/molecules/SocialsHost.astro';
+
+import { fetchProfile } from '../utils/fetchProfile';
+import { getAvatarUrl } from '../utils/getAvatarUrl';
+import { getColorsFromAvatar } from '../utils/getColorsFromAvatar';
+
+const profile = await fetchProfile();
+
+const globalName = profile.globalName;
+const userId = profile.userId;
+const avatarId = profile.avatarId;
+
+const avatarUrl = `https://cdn.discordapp.com/avatars/${userId}/${avatarId}.png?size=512`;
+const colorScheme = await getColorsFromAvatar(avatarUrl);
+---
+
+<Layout
+	background={colorScheme.background}
+	onBackground={colorScheme.onBackground}
+	primary={colorScheme.primary}
+	onPrimary={colorScheme.onPrimary}
+	avatar={avatarUrl}
+>
+	<div class="center">
+		<div class="wrapper">
+			<Hero {avatarUrl} {globalName} />
+
+			<div class="introduction-container">
+				<HeroTitle globalName={globalName} />
+
+				<span class="introduction">
+					Hi! Just someone who likes tinkering with random stuff.
+					Currently I don't make things, but I'm hoping to change that soon :)
+				</span>
+
+				<div class="social-buttons">
+					<SocialsHost />
+				</div>
+			</div>
+		</div>
+	</div>
+</Layout>
+
+<style>
+	:global(body) {
+		margin: 0;
+		padding: 0;
+		min-height: -webkit-fill-available;
+		min-height: -moz-available;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: var(--background);
+		color: var(--onBackground);
+		font-family: 'Space Grotesk', sans-serif;
+	}
+
+	:global(html) {
+		height: -webkit-fill-available;
+		height: -moz-available;
+	}
+
+	.wrapper {
+		display: flex;
+		max-width: 100vw;
+		height: 100%;
+	}
+
+	.center {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.introduction-container {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		gap: 2rem;
+		color: var(--primary);
+		font-family: 'Space Grotesk', sans-serif;
+	}
+
+	.introduction-container .introduction {
+		color: var(--onBackground);
+		font-size: 1.3rem;
+		font-weight: 300;
+	}
+
+	@media (max-width: 868px) {
+		.wrapper {
+			flex-direction: column;
+			gap: 2rem;
+			width: min(90%, 65rem) !important;
+		}
+
+		.introduction-container {
+			align-items: center;
+			font-family: 'Space Grotesk', sans-serif;
+			font-size: 6px;
+		}
+
+		.introduction-container .introduction {
+			text-align: center;
+			font-size: 16px;
+			padding-right: 0;
+			width: 90%;
+		}
+
+		.social-buttons {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			gap: 1rem;
+			align-items: center;
+		}
+	}
+</style>

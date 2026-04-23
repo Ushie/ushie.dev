@@ -1,0 +1,37 @@
+---
+	import HeroImage from '../atoms/HeroImage.astro';
+
+	const { avatarUrl, globalName } = Astro.props;
+---
+
+<div>
+	<HeroImage {avatarUrl} />
+	<span>hey, i'm <strong>{globalName.toLowerCase()}</strong></span>
+</div>
+
+<style>
+	div {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+	}
+	span {
+		display: none;
+	}
+	
+	@media (max-width: 868px) {
+		div {
+			margin-left: 0;
+			gap: 1.25rem;
+			padding-left: 1rem;
+			font-family: var(--font-one);
+			width: 100%;
+		}
+		span {
+			display: inline-block;
+			color: var(--primary);
+			font-size: clamp(2.5rem, 8vw, 5rem);
+		}
+	}
+</style>

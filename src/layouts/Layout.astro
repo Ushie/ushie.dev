@@ -1,0 +1,43 @@
+---
+const {
+	background = '#000000',
+	onBackground = '#ffffff',
+	primary = '#ffffff',
+	onPrimary = '#000000',
+	avatar,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon"href={avatar} />
+		<link
+			href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<meta name="generator" content={Astro.generator} />
+		<title>Ushie</title>
+	</head>
+	<body
+		style={`--background:${background};--onBackground:${onBackground};--primary:${primary};--onPrimary:${onPrimary};--font-one:'Space Grotesk',sans-serif;--font-two:'JetBrains Mono',monospace;`}
+	>
+		<slot />
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	body {
+		background: var(--background);
+		color: var(--onBackground);
+	}
+</style>
